@@ -1,0 +1,5 @@
+set_property ASYNC_REG true [get_cells U3/uut1/I1_reg]
+set_property ASYNC_REG true [get_cells U3/uut1/I2_reg]
+create_clock -period 20.000 -name clk -waveform {0.000 10.000} [get_ports clk]
+create_clock -period 1000.000 -name interrupt -waveform {0.000 500.000} [get_ports interrupt]
+set_clock_groups -asynchronous -group [get_clocks interrupt] -group [get_clocks clk]
